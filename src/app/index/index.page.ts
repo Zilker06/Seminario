@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-index',
+  templateUrl: './index.page.html',
+  styleUrls: ['./index.page.scss'],
 })
-export class HomePage {
+export class IndexPage implements OnInit {
 
   slides = [
     {
@@ -35,18 +35,15 @@ export class HomePage {
       image: "https://www.comicquestcol.com/wp-content/uploads/2021/01/JUJU-1.jpg" 
     }
   ]
-  
-  constructor(private router:Router){}
+
+  constructor(private router: Router, private storage: Storage) { }
+
+  ngOnInit() {
+  }
 
   close(){
-    this.router.navigateByUrl("/index")
+    this.storage.set("isIntroShowed", true)
+    this.router.navigateByUrl("/home")
   }
+
 }
-
-/* 
-
-Crear 4 slides
-Asignar estilos y diseño
-Modificar alguna custom propierty
-
-*/ 
