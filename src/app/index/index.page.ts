@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Storage } from '@ionic/storage';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-index',
@@ -42,7 +42,7 @@ export class IndexPage implements OnInit {
   }
 
   close(){
-    this.storage.set("isIntroShowed", true)
+    this.storage.set("isIndexShowed", true)
     this.router.navigateByUrl("/home")
   }
 

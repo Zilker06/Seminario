@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { register } from 'swiper/element/bundle';
-import { Storage } from '@ionic/storage-angular'
+import { Storage } from '@ionic/storage-angular';
+
 register();
 
 @Component({
@@ -11,7 +12,7 @@ register();
 export class AppComponent {
   constructor(private storage: Storage) {}
 
-  async NgOnInit(){
+  async ngOnInit(){
     await this.storage.create();
   }
 }
