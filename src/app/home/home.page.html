@@ -1,6 +1,42 @@
-<ion-content class="custom-bg-color" [fullscreen]="true">
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
 
-    <ion-icon name="close-outline" (click)="close()"></ion-icon>
-    <p>Hola</p>
-
+    <h1>Artistas</h1>
+    <swiper-container slides-per-view="4" speed="400">
+        <swiper-slide *ngFor="let artist of artists">
+            <ion-avatar (click)="showSongs(artist)">
+                <img src="{{artist.image}}">
+                <span>{{artist.name}}</span>
+            </ion-avatar>
+        </swiper-slide>
+    </swiper-container>
 </ion-content>
+<ion-footer>
+    <ion-grid>
+        <ion-row>
+            <ion-col class="ion-text-start">{{parseTime(currentSong.currentTime) || "0.00"}}</ion-col>
+            <ion-col class="ion-text-end">{{parseTime(currentSong.duration) || "0.00"}}</ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-progress-bar [value]=" newTime || 0"></ion-progress-bar>
+    <ion-grid>
+        <ion-row>
+            <ion-col class="ion-text-start">
+                <ion-icon name="heart"></ion-icon>
+            </ion-col>
+            <ion-col class="ion-text-center">
+                <ion-text>{{song.name || "Aun no has seleccionado una cancion"}}</ion-text>
+            </ion-col>
+            <ion-col class="ion-text-end">
+                <ion-icon name="play" (click)="play()" *ngIf="!song.playing"></ion-icon>
+                <ion-icon name="pause" (click)="pause()" *ngIf="song.playing"></ion-icon>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-footer>

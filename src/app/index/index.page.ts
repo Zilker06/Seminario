@@ -43,7 +43,7 @@ export class IndexPage implements OnInit {
 
   close(){
     this.storage.set("isIndexShowed", true)
-    this.router.navigateByUrl("/home")
+    this.router.navigateByUrl("/menu/home")
   }
 
 }
