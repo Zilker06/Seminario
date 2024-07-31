@@ -1,7 +1,7 @@
 <ion-content class="custom-bg-color" [fullscreen]="true">
 
   <ion-icon name="close-outline" (click)="close()"></ion-icon>
-  <swiper-container class="sp-bg-color">
+  <swiper-container  speed="400" class="sp-bg-color">
     <swiper-slide *ngFor="let slide of slides">
         <img src="{{slide.image}}">
         

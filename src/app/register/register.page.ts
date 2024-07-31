@@ -51,10 +51,6 @@ export class RegisterPage implements OnInit {
     return password == password_confirmation ? null : {passwordNotMatch: true};
   }
 
-  login(){
-    this.navCtrl.navigateForward("/login")
-  }
-
   back2Login(){
     this.navCtrl.navigateForward("/login")
   }
@@ -63,7 +59,7 @@ export class RegisterPage implements OnInit {
     console.log(registerData);
     this.storage.set("user", registerData);
     this.authService.registerUser(registerData).then(res => {
-      this.navCtrl.navigateBack("/login");
+      this.navCtrl.navigateForward("/login")
     });
   }
 }

@@ -75,11 +75,9 @@
       </ng-container>
     </div> 
 
-    <ion-button (click)="login()" [disabled]="!registerForm.valid"  expand="block" shape="round" color="success">
+    <ion-button type="submit" [disabled]="!registerForm.valid"  expand="block" shape="round" color="success">
       Registrate <ion-icon name="log-in-outline"></ion-icon>
     </ion-button>
 
-
-    
   </form>
 </ion-content>
